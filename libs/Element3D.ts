@@ -172,7 +172,7 @@ class Bullet{
 class Controles{
     controls: any;
     constructor(camera:any, renderer:any){
-        this.controls = new PointerLockControls(camera,renderer.render);
+        // this.controls = new PointerLockControls(camera,renderer.render);
     }
 
     get_instance_controls(){
