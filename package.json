@@ -1,0 +1,31 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch",
+    "serve": "npx serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^2.1.1",
+    "socket.io-client": "^2.2.0",
+    "three": "^0.97.0",
+    "three-orbit-controls": "^82.1.0",
+    "three-orbitcontrols-ts": "^0.1.2",
+    "three-pointerlock": "^0.0.2",
+    "three-pointerlock-ts": "^0.0.2"
+  },
+  "devDependencies": {
+    "@types/socket.io-client": "^3.0.0",
+    "@types/three": "^0.161.2",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.1",
+    "webpack-cli": "^5.1.4"
+  }
+}

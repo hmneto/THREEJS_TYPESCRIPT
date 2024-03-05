@@ -1,0 +1,49 @@
+npm install --save-dev typescript webpack webpack-cli ts-loader
+
+
+
+/tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true
+  }
+}
+
+
+
+
+/webpack.config.js
+const path = require('path');
+
+module.exports = {
+  entry: './src/index.ts', // substitua pelo caminho do seu arquivo TypeScript principal
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  resolve: {
+    extensions: ['.ts', '.js']
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      }
+    ]
+  }
+};
+
+
+
+
+/index.ts
+function soma(a: number, b: number): number {
+    return a + b;
+  }
+  
+  console.log(soma(5, 10));
+  
