@@ -2,8 +2,8 @@ import * as THREE from "three";
 import { OrbitControls } from "three-orbitcontrols-ts";
 const MTLLoader = require('./MTLLoader')
 const OBJLoader = require('./OBJLoader')
+import  {Cubo} from './Cubo'
 
-// import PointerLockControls from 'three-pointerlock-ts'
 
 class Player{
     speed:number;
@@ -21,22 +21,7 @@ class KeyBoard{
     [key: number] : boolean
 }
 
-class Cubo{
-    instance_cubo: THREE.Mesh<THREE.BoxGeometry, THREE.MeshNormalMaterial, THREE.Object3DEventMap>;
-    constructor(use_wireframe: boolean){
-        this.instance_cubo = new THREE.Mesh(
-            new THREE.BoxGeometry(1, 1, 1),
-            new THREE.MeshNormalMaterial({ wireframe: use_wireframe })
-        );
-        this.instance_cubo.receiveShadow = true
-        this.instance_cubo.castShadow = true
-        this.instance_cubo.position.y=+2
-    }
 
-    get_instance(){
-        return this.instance_cubo
-    }
-}
 
 class Rederer{
     renderer: THREE.WebGLRenderer;       

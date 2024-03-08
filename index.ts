@@ -32,13 +32,13 @@ class Index{
         this.elements3D.cubo.rotation.x+=0.01
         this.elements3D.cubo.rotation.y+=0.01
 
-        // this.elements3D.s_pressed()
-        // this.elements3D.w_pressed()
-        // this.elements3D.a_pressed()
-        // this.elements3D.d_pressed()
+        this.elements3D.s_pressed()
+        this.elements3D.w_pressed()
+        this.elements3D.a_pressed()
+        this.elements3D.d_pressed()
 
-        // this.elements3D.left_pressed()
-        // this.elements3D.right_pressed()
+        this.elements3D.left_pressed()
+        this.elements3D.right_pressed()
 
         // this.elements3D.space_pressed()
         // this.elements3D.gun_moviment()
