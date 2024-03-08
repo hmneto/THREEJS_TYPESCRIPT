@@ -1,5 +1,10 @@
 import Elements3D from './libs/Element3D'
 const io = require('socket.io-client')
+import  './index.css'
+
+// import * as THREE from 'three'
+
+
 
 class Index{
     elements3D: Elements3D
@@ -27,18 +32,18 @@ class Index{
         this.elements3D.cubo.rotation.x+=0.01
         this.elements3D.cubo.rotation.y+=0.01
 
-        this.elements3D.s_pressed()
-        this.elements3D.w_pressed()
-        this.elements3D.a_pressed()
-        this.elements3D.d_pressed()
+        // this.elements3D.s_pressed()
+        // this.elements3D.w_pressed()
+        // this.elements3D.a_pressed()
+        // this.elements3D.d_pressed()
 
-        this.elements3D.left_pressed()
-        this.elements3D.right_pressed()
+        // this.elements3D.left_pressed()
+        // this.elements3D.right_pressed()
 
-        this.elements3D.space_pressed()
+        // this.elements3D.space_pressed()
         // this.elements3D.gun_moviment()
 
-        // this.elements3D.Orbit()
+        this.elements3D.Orbit()
         this.elements3D.renderer.render(this.elements3D.cena, this.elements3D.camera)
     }
 }

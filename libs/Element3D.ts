@@ -1,9 +1,9 @@
 import * as THREE from "three";
+import { OrbitControls } from "three-orbitcontrols-ts";
 const MTLLoader = require('./MTLLoader')
 const OBJLoader = require('./OBJLoader')
-import PointerLockControls from 'three-pointerlock-ts'
 
-
+// import PointerLockControls from 'three-pointerlock-ts'
 
 class Player{
     speed:number;
@@ -170,9 +170,9 @@ class Bullet{
 }
 
 class Controles{
-    controls: any;
-    constructor(camera:any, renderer:any){
-        // this.controls = new PointerLockControls(camera,renderer.render);
+    controls: OrbitControls;
+    constructor(camera: THREE.PerspectiveCamera, renderer:THREE.WebGLRenderer){
+        this.controls = new OrbitControls(camera, renderer.domElement);
     }
 
     get_instance_controls(){
@@ -196,20 +196,25 @@ export default class Element3D {
     crate: THREE.Mesh<THREE.BoxGeometry, THREE.MeshPhongMaterial, THREE.Object3DEventMap>;
     RESOURCES_LOADED: boolean;
     loadingScreen: LoadingScreen;
-    meshes: { [key: string]: any };
+    meshes: { [key: string]: any } = [];
     clock: THREE.Clock;
     bullet: Bullet
-    bullets: any;
-    controls: any;
+    bullets: Bullet[] = [];
+    controls: OrbitControls;
+
+
     
     constructor() {
+
+
         this.USE_WIREFRAME = false
         this.RESOURCES_LOADED = false
-
-        this.bullets=[]
-        this.meshes = []
-
         this.cena = new THREE.Scene();
+
+        this.cena.background = new THREE.Color(0xffffff);
+
+
+
         this.luzAmbiente = new THREE.AmbientLight(0xffffff, 0.2)
 
         this.loadingManager = new THREE.LoadingManager()
@@ -230,7 +235,9 @@ export default class Element3D {
         this.luz = new Luz().get_luz_instance()
         this.bullet = new Bullet(this.camera);
 
-        this.controls = new Controles(this.camera, this.renderer).get_instance_controls()
+
+        this.controls = new Controles(this.camera,this.renderer).get_instance_controls()
+        this.controls.enableZoom = false;
 
 
 
@@ -495,7 +502,7 @@ export default class Element3D {
 
     Orbit(){
         try {
-            this.controls.update(1);
+            this.controls.update();
         } catch (error) { }    
     }
 }
